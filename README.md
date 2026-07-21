@@ -37,14 +37,14 @@ real barrier. One powerful server does the compute; everyone else just needs a b
 
 | | |
 |---|---|
-| 🧠 **DICOM → BIDS, automatically** | Upload a zipped DICOM folder; the server runs `dcm2niix` + `dcm2bids`, classifies each series, and lays out a valid BIDS dataset — no manual config file needed. |
-| 📊 **One-click MRIQC** | Runs MRIQC on the dataset and returns the per-image IQMs plus the full HTML report, packaged as a downloadable ZIP. |
-| 📈 **Benchmark comparison** | Every metric is ranked against a bundled open reference population (33-subject OpenNeuro T1w set) so you instantly see whether a scan is typical or an outlier. |
-| 👤 **Accounts & history** | Register/log in to keep a permanent history of your runs, their metrics, and their benchmark percentiles. |
-| 🌍 **Open metrics pool** | Opt in to share a run's metrics to a public benchmark pool, growing a community reference dataset. |
-| 🗺️ **Live impact tally** | Homepage counters for scans QC'd, countries reached, and users — country is derived privately from request geolocation. |
-| 🤖 **Built-in AI assistant** | A support chatbot (Google Gemini) answers MRIQC / BIDS / usage questions in context. |
-| ⚡ **Fair-share job queue** | A disk-backed queue runs multiple jobs concurrently and shares capacity fairly across users on the shared server. |
+|  **DICOM → BIDS, automatically** | Upload a zipped DICOM folder; the server runs `dcm2niix` + `dcm2bids`, classifies each series, and lays out a valid BIDS dataset — no manual config file needed. |
+|  **One-click MRIQC** | Runs MRIQC on the dataset and returns the per-image IQMs plus the full HTML report, packaged as a downloadable ZIP. |
+|  **Benchmark comparison** | Every metric is ranked against a bundled open reference population (33-subject OpenNeuro T1w set) so you instantly see whether a scan is typical or an outlier. |
+|  **Accounts & history** | Register/log in to keep a permanent history of your runs, their metrics, and their benchmark percentiles. |
+|  **Open metrics pool** | Opt in to share a run's metrics to a public benchmark pool, growing a community reference dataset. |
+|  **Live impact tally** | Homepage counters for scans QC'd, countries reached, and users — country is derived privately from request geolocation. |
+|  **Built-in AI assistant** | A support chatbot (Google Gemini) answers MRIQC / BIDS / usage questions in context. |
+|  **Fair-share job queue** | A disk-backed queue runs multiple jobs concurrently and shares capacity fairly across users on the shared server. |
 
 ---
 
@@ -200,13 +200,13 @@ All configuration is via environment variables (put them in a gitignored `.env`)
 | Method & path | Auth | Description |
 |---|---|---|
 | `GET /health` | – | Liveness + tool availability (`dcm2bids`, `dcm2niix`, `mriqc`). |
-| `POST /convert-dicom` | ✅ | Upload zipped DICOM → returns a BIDS dataset job. |
-| `POST /run-mriqc` | ✅ | Run MRIQC on an uploaded BIDS/DICOM dataset → IQMs + report. |
+| `POST /convert-dicom` |  | Upload zipped DICOM → returns a BIDS dataset job. |
+| `POST /run-mriqc` |  | Run MRIQC on an uploaded BIDS/DICOM dataset → IQMs + report. |
 | `GET /job/{job_id}` | – | Job status (`queued` / `running` / `done` / `error`, queue position). |
 | `GET /job/{job_id}/download` | – | Download the result ZIP. |
 | `POST /auth/register`, `/auth/login` | – | Create account / sign in (JWT). |
-| `GET /auth/submissions` | ✅ | The signed-in user's run history + metrics. |
-| `PATCH /auth/submissions/{id}/visibility` | ✅ | Toggle a run's metrics public/private. |
+| `GET /auth/submissions` | | The signed-in user's run history + metrics. |
+| `PATCH /auth/submissions/{id}/visibility` |  | Toggle a run's metrics public/private. |
 | `GET /stats/impact` | – | Live scans / countries / users counters. |
 | `GET /stats/open-metrics` | – | Aggregated public benchmark metrics. |
 
